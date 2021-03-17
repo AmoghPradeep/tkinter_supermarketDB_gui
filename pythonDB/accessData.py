@@ -15,14 +15,14 @@ db = mysql.connector.connect(
 
 def getData(table, condition = ""):
     mycursor = db.cursor()
-    if len(condition > 1):
+    if len(condition) > 1:
         condition = " where " + condition
     sql = "select * from " + table + condition
+    print(sql)
     try:
         mycursor.execute(sql)
         data = mycursor.fetchall()
     except:
-        print("retrieval failed!")
         return False
 
     return data
@@ -56,8 +56,14 @@ def delData(table, id, val):
     
     return True
 
-    
-    
+def getTableInfo():
+    mycursor = db.cursor()
 
-        
-
+    sql = "select table_name, table_rows from information_schema.tables where table_schema = 'retail'"
+    try:
+        mycursor.execute(sql)
+        tables = mycursor.fetchall()
+    except:
+        return False
+     
+    return tables
