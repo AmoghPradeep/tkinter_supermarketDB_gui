@@ -61,7 +61,7 @@ class bill:
         itemDisplay.insert('1.0', self.order)
 
         totalL = Label(self.billFrame, text = " Total :",  font = ("Montserrat", 13, 'italic'))
-        priceL = Label(self.billFrame, text = "₹" + str(int(self.total)) + "  ",  font = ("Montserrat", 32, 'italic', 'bold'), fg = "orange")
+        priceL = Label(self.billFrame, text = "₹" + str(int(self.total)) + "  ",  font = ("Montserrat", 28, 'italic', 'bold'), fg = "orange")
         totalL.place(x = 700, y = 280)
         priceL.place(x = 760, y =260)
 
